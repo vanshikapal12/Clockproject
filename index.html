@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>JS Clock Project</title>
+    <style>
+      /* Page styling */
+      body {
+        background-color: #111827; /* dark gray (like bg-gray-900) */
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        font-family: monospace;
+      }
+
+      /* Clock box */
+      .clock-container {
+        background-color: #1f2937; /* like bg-gray-800 */
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+      }
+
+      /* Time text */
+      #clock {
+        color: white;
+        font-size: 60px;
+        letter-spacing: 5px;
+      }
+
+      /* Subtitle */
+      .subtitle {
+        color: #9ca3af; /* gray-400 */
+        margin-top: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="clock-container">
+      <h1 id="clock">00:00:00</h1>
+      <p class="subtitle">Digital Clock</p>
+    </div>
+
+    <script>
+      setInterval(() => {
+        const clock = document.getElementById("clock");
+        const time = new Date();
+
+        const option = {
+          timeZone: "Asia/Kolkata",
+          hour: "2-digit",
+          minute: "2-digit",
+          second: "2-digit",
+        };
+
+        clock.textContent = time.toLocaleTimeString("en-US", option);
+
+        console.log(time);
+      }, 1000);
+    </script>
+  </body>
+</html>
